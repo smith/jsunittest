@@ -1,4 +1,4 @@
-  new Test.Unit.Runner({
+  var test = new Test.Unit.Runner({
     // Library
     testLibrary: function() { with(this) {
       assert(JsUnitTest.Template);
@@ -15,8 +15,7 @@
       var pattern = /(^|.|\r|\n)(#\((.*?)\))/;
       assertEqual('#{name}: Stephan', new JsUnitTest.Template('\\#{name}: #{name}').evaluate(subject));
       assertEqual('#(name): Stephan', new JsUnitTest.Template('\\#(name): #(name)', pattern).evaluate(subject));
-    }},
-    
-      
+    }}
   }); 
 
+test.output();

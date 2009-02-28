@@ -7,7 +7,7 @@
     }
   }
 
-  new Test.Unit.Runner({
+  var test = new Test.Unit.Runner({
     setup: function() {
       this.testcss1      = document.getElementById('testcss1');
       this.testcss1_span = document.getElementById('testcss1_span');
@@ -143,3 +143,4 @@
     }}
   }); 
 
+test.output();

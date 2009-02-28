@@ -8,13 +8,6 @@ JsUnitTest.Unit.Runner = function(testcases) {
   this.tests = this.getTests(testcases);
   this.currentTest = 0;
   this.logger = new JsUnitTest.Unit.Logger(options.testLog);
-  
-  var self = this;
-  JsUnitTest.Event.addEvent(window, "load", function() {
-    setTimeout(function() {
-      self.runTests();
-    }, 0.1);
-  });
 };
 
 JsUnitTest.Unit.Runner.prototype.queryParams = JsUnitTest.toQueryParams();
@@ -117,4 +110,26 @@ JsUnitTest.Unit.Runner.prototype.finish = function() {
 
 JsUnitTest.Unit.Runner.prototype.summary = function() {
   return new JsUnitTest.Template('#{tests} tests, #{assertions} assertions, #{failures} failures, #{errors} errors, #{warnings} warnings').evaluate(this.getResult());
+};
+
+/**
+ * Format for output. Default is "DOM", will be a prefix to a logger object
+ */
+JsUnitTest.Unit.Runner.outputFormat = "DOM";
+
+/**
+ * Output the test results. Can return a string of test results or just run the tests
+ */
+JsUnitTest.Unit.Runner.prototype.output = function output() {
+    var self = this;
+
+    if (typeof window === "object" && typeof window.setTimeOut === "function") {
+        JsUnitTest.Event.addEvent(window, "load", function() {
+            setTimeout(function() {
+                self.runTests();
+            }, 0.1);
+        });
+    } else {
+        return self.runTests();
+    }
 };

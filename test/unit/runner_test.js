@@ -1,4 +1,4 @@
-  new Test.Unit.Runner({
+  var test = new Test.Unit.Runner({
     // replace this with your real tests
     setup: function() {
       JsUnitTest.Unit.Testcase = function() {};
@@ -33,8 +33,7 @@
       assertEqual(0, results.failures);
       assertEqual(0, results.warnings);
       assertEqual("2 tests, 2 assertions, 0 failures, 0 errors, 0 warnings", runner.summary());
-    }},
-
-    
+    }}
   }); 
 
+test.output();

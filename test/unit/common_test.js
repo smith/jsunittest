@@ -1,4 +1,4 @@
-  new Test.Unit.Runner({
+  var test = new Test.Unit.Runner({
     testScan: function() {with(this) {
       var source = 'foo boo boz', results = [];
       var str = JsUnitTest.scan(source, /[o]+/, function(match) {
@@ -26,3 +26,4 @@
     
   }); 
 
+test.output();

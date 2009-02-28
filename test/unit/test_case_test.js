@@ -1,4 +1,4 @@
-  new Test.Unit.Runner({
+  var test = new Test.Unit.Runner({
     // replace this with your real tests
     setup: function() {
       this.testcase = new JsUnitTest.Unit.Testcase("name");
@@ -59,3 +59,4 @@
 
   }); 
 
+test.output();

@@ -1,4 +1,4 @@
-  new Test.Unit.Runner({
+  var test = new Test.Unit.Runner({
     // replace this with your real tests
     setup: function() {
       this.logger = new JsUnitTest.Unit.Logger('testlog_test');
@@ -59,3 +59,4 @@
   // create more <div id="testlog2"></div> etc, and pass the element id to the hash above:
   // e.g. {testLog: "testlog2"}
 
+test.output();
