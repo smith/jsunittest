@@ -1,37 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <title>JavaScript unit test file</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <script src="../../dist/jsunittest.js" type="text/javascript"></script>
-  <script src="../../src/prototype/template.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../../src/prototype/event.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../../src/runner.js" type="text/javascript"></script>
-  
-  <link rel="stylesheet" href="../assets/unittest.css" type="text/css" />
-</head>
-<body>
-
-<div id="content">
-
-  <div id="header">
-    <h1>JavaScript unit test file</h1>
-    <p>
-      This file tests <strong>runner.js</strong>.
-    </p>
-  </div>
-
-  <!-- Log output (one per Runner, via {testLog: "testlog"} option)-->
-  <div id="testlog"></div>
-  
-  <!-- Put sample/test html here -->
-  <div id="sample"></div>
-</div>
-
-<script type="text/javascript">
-// <![CDATA[
-
   new Test.Unit.Runner({
     // replace this with your real tests
     setup: function() {
@@ -71,7 +37,4 @@
 
     
   }); 
-// ]]>
-</script>
-</body>
-</html>
+
