@@ -9,9 +9,11 @@
 
   var test = new Test.Unit.Runner({
     setup: function() {
-      this.testcss1      = document.getElementById('testcss1');
-      this.testcss1_span = document.getElementById('testcss1_span');
-      this.tlist         = document.getElementById('tlist');
+      if (typeof document === "object") {
+        this.testcss1      = document.getElementById('testcss1');
+        this.testcss1_span = document.getElementById('testcss1_span');
+        this.tlist         = document.getElementById('tlist');
+      }
     },
     
     testMessage: function() { with(this) {
@@ -109,37 +111,43 @@
     }},
     
     testHasClass: function() { with(this) {
-      // <div id="test_1" class="a bbbbbbbbbbbb cccccccccc dddd"> </div>
-      assertHasClass('test_1', 'a');
-      // info(document.getElementById('test_1').className);
-      assertHasClass(document.getElementById('test_1'), 'dddd');
+      if (typeof document === "object") {
+        // <div id="test_1" class="a bbbbbbbbbbbb cccccccccc dddd"> </div>
+        assertHasClass('test_1', 'a');
+        // info(document.getElementById('test_1').className);
+        assertHasClass(document.getElementById('test_1'), 'dddd');
+      }
     }},
     
     testAssertVisible: function() { with(this) {
-      assertVisible('testcss1');
-      assertNotVisible('testcss1_span');
-      //assertNotVisible('testcss2', "Due to a Safari bug, this test fails in Safari.");
+      if (typeof document === "object") {
+        assertVisible('testcss1');
+        assertNotVisible('testcss1_span');
+        //assertNotVisible('testcss2', "Due to a Safari bug, this test fails in Safari.");
+        
+        // Elemenhide('testcss1');
+        testcss1.style.display = "none";
+        assertNotVisible('testcss1');
+        assertNotVisible('testcss1_span');
+        // Elemenshow('testcss1');
+        testcss1.style.display = "block";
+        assertVisible('testcss1');
+        assertNotVisible('testcss1_span');
       
-      // Elemenhide('testcss1');
-      testcss1.style.display = "none";
-      assertNotVisible('testcss1');
-      assertNotVisible('testcss1_span');
-      // Elemenshow('testcss1');
-      testcss1.style.display = "block";
-      assertVisible('testcss1');
-      assertNotVisible('testcss1_span');
-      
-      // Elemenshow('testcss1_span');
-      testcss1_span.style.display = "block";
-      assertVisible('testcss1_span');
-      // Elemenhide('testcss1');
-      testcss1.style.display = "none";
-      assertNotVisible('testcss1_span'); // hidden by parent
+        // Elemenshow('testcss1_span');
+        testcss1_span.style.display = "block";
+        assertVisible('testcss1_span');
+        // Elemenhide('testcss1');
+        testcss1.style.display = "none";
+        assertNotVisible('testcss1_span'); // hidden by parent
+      }
     }},
 
     testAssertElementsMatch: function() { with(this) {
-      assertElementsMatch([tlist], '#tlist');   
-      assertElementMatches(tlist,  '#tlist');   
+      if (typeof document === "object") {
+        assertElementsMatch([tlist], '#tlist');   
+        assertElementMatches(tlist,  '#tlist');   
+      }
     }}
   }); 
 

@@ -1,6 +1,4 @@
-load("../../../dist/jsunittest.js");
-load("../../../src/assertions.js");
-print("JavaScript unit test file");
+load("_common.js");
 print("This file tests assertions.js.");
 load("../assertions_test.js");
 
