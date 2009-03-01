@@ -1,7 +1,8 @@
   var test = new Test.Unit.Runner({
     // replace this with your real tests
     setup: function() {
-      this.logger = new JsUnitTest.Unit.Logger('testlog_test');
+      var loggerType = JsUnitTest.Unit.Runner.loggerType || this.loggerType || "DOM";
+      this.logger = new JsUnitTest.Unit[loggerType + "Logger"]('testlog_test');
       this.testlog_test = JsUnitTest.$('testlog_test');
       this.tbody = this.testlog_test.getElementsByTagName('tbody')[0];
     },
@@ -48,7 +49,7 @@
       logger.start("test 1");
       logger.summary("some summary");
       assertMatch(/some\ssummary/, testlog_test.innerHTML);
-    }},
+    }}
 
     
       
