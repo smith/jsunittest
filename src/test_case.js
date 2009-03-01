@@ -18,7 +18,8 @@ JsUnitTest.Unit.Testcase.prototype.assertions        = 0;
 JsUnitTest.Unit.Testcase.prototype.failures          = 0;
 JsUnitTest.Unit.Testcase.prototype.errors            = 0;
 JsUnitTest.Unit.Testcase.prototype.warnings          = 0;
-JsUnitTest.Unit.Testcase.prototype.isRunningFromRake = window.location.port;
+JsUnitTest.Unit.Testcase.prototype.isRunningFromRake = typeof window === "object" ?
+    window.location.port : false;
 
 // JsUnitTest.Unit.Testcase.prototype.isRunningFromRake = window.location.port == 4711;
 

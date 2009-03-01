@@ -25,7 +25,7 @@ var JsUnitTest = {
         elements.push(this.$(arguments[i]));
       return elements;
     }
-    if (typeof element == "string")
+    if (typeof element == "string" && typeof document === "object")
       element = document.getElementById(element);
     return element;
   },
@@ -151,6 +151,7 @@ var JsUnitTest = {
     return match;
   },
   toQueryParams: function(query, separator) {
+    if (typeof window !== "object") { return {}; }
     var query = query || window.location.search;
     var match = query.replace(/^\s+/, '').replace(/\s+$/, '').match(/([^?#]*)(#.*)?$/);
     if (!match) return { };

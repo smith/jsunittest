@@ -13,10 +13,10 @@ JsUnitTest.Unit.Runner = function(testcases) {
 JsUnitTest.Unit.Runner.prototype.queryParams = JsUnitTest.toQueryParams();
 
 JsUnitTest.Unit.Runner.prototype.portNumber = function() {
-  if (window.location.search.length > 0) {
+  if (typeof window === "object" && window.location.search.length > 0) {
     var matches = window.location.search.match(/\:(\d{3,5})\//);
     if (matches) {
-      return parseInt(matches[1]);
+      return parseInt(matches[1], 10);
     }
   }
   return null;
