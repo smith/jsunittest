@@ -1,6 +1,9 @@
 JsUnitTest.Unit.CLILogger = function() {
-    if (typeof print === "function") { this.print = print; }
-    else if (typeof WScript === "object") { this.print = WScript.echo; }
+    if (typeof WScript === "object") {
+        this.print = function () { 
+            WScript.echo(Array.prototype.slice.call(arguments).join(" ")); 
+        };
+    } else if (typeof print === "function") { this.print = print; }
     else { this.print = function print() {}; }
     this.messageText = "";
     this.print("");

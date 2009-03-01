@@ -1,0 +1,6 @@
+<job>
+    <script src="../../../dist/jsunittest.js" language="javascript"></script>
+    <script src="_common.js" language="javascript"></script>
+    <script src="../common_test.js" language="javascript"></script>
+</job>
+

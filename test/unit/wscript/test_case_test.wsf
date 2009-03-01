@@ -1,0 +1,10 @@
+<job>
+    <script src="../../../dist/jsunittest.js" language="javascript"></script>
+    <script src="../../../src/test_case.js" language="javascript"></script>
+    <script src="_common.js" language="javascript"></script>
+    <script language="javascript">
+        WScript.echo("This file tests test_case.js.");
+    </script>
+    <script src="../test_case_test.js" language="javascript"></script>
+</job>
+
