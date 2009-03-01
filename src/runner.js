@@ -1,14 +1,23 @@
+
 JsUnitTest.Unit.Runner = function(testcases) {
   var argumentOptions = arguments[1] || {};
   var options = this.options = {};
+  var loggerClass;
   options.testLog = ('testLog' in argumentOptions) ? argumentOptions.testLog : 'testlog';
   options.resultsURL = this.queryParams.resultsURL;
-  options.testLog = JsUnitTest.$(options.testLog);
+  options.testLog = this.testLog = JsUnitTest.$(options.testLog);
   
   this.tests = this.getTests(testcases);
   this.currentTest = 0;
-  this.logger = new JsUnitTest.Unit.Logger(options.testLog);
+  this.loggerType = options.loggerType || this.loggerType || 
+    JsUnitTest.Unit.Runner.loggerType || "DOM";
+  loggerClass = this.loggerType + "Logger";
+  try {
+    this.logger = new JsUnitTest.Unit[loggerClass](this.testLog);
+  } catch (e) { throw new Error(loggerClass + " not found"); }
 };
+
+JsUnitTest.Unit.Runner.loggerType = "DOM";
 
 JsUnitTest.Unit.Runner.prototype.queryParams = JsUnitTest.toQueryParams();
 
@@ -82,7 +91,7 @@ JsUnitTest.Unit.Runner.prototype.postResults = function() {
 
 JsUnitTest.Unit.Runner.prototype.runTests = function() {
   var test = this.tests[this.currentTest], actions;
-  
+
   if (!test) return this.finish();
   if (!test.isWaiting) this.logger.start(test.name);
   test.run();
@@ -112,10 +121,6 @@ JsUnitTest.Unit.Runner.prototype.summary = function() {
   return new JsUnitTest.Template('#{tests} tests, #{assertions} assertions, #{failures} failures, #{errors} errors, #{warnings} warnings').evaluate(this.getResult());
 };
 
-/**
- * Format for output. Default is "DOM", will be a prefix to a logger object
- */
-JsUnitTest.Unit.Runner.outputFormat = "DOM";
 
 /**
  * Output the test results. Can return a string of test results or just run the tests
