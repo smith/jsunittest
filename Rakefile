@@ -107,6 +107,15 @@ JavaScriptTestTask.new(:test_functionals, 4712) do |t|
   end
 end
 
+desc "Run the command line tests from Rhino or SpiderMonkey"
+task :test_units_cli do 
+  # TODO: Determine whether to use js or rhino
+  js = "js"
+  Dir.chdir("test/unit/cli");
+  Dir.glob("*").each do |file|
+    system("#{js} #{file}") if file[0].chr != "_"
+  end
+end
 
 task :clean_package_source do
   rm_rf File.join(APP_PKG_DIR, "#{APP_NAME}-#{APP_VERSION}")
