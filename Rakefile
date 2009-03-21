@@ -12,7 +12,7 @@ require 'rake/packagetask'
 
 $:.unshift File.dirname(__FILE__) + "/lib"
 
-APP_VERSION  = '0.7.2'
+APP_VERSION  = '0.7.3'
 APP_NAME     = 'jsunittest'
 RUBYFORGE_PROJECT = 'drnicjavascript'
 APP_FILE_NAME= "#{APP_NAME}.js"
@@ -39,6 +39,7 @@ task :dist do
       dist << Protodoc::Preprocessor.new(APP_FILE_NAME)
     end
   end
+  FileUtils.cp(APP_ROOT + "/test/assets/unittest.css", APP_DIST_DIR)
   Dir.chdir(APP_DIST_DIR) do
     FileUtils.copy_file APP_FILE_NAME, "#{APP_NAME}-#{APP_VERSION}.js"
   end
