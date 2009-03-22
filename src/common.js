@@ -40,13 +40,15 @@ var JsUnitTest = {
   },
 
 	$: function(element) {
-    if (arguments.length > 1) {
-      for (var i = 0, elements = [], length = arguments.length; i < length; i++)
-        elements.push(this.$(arguments[i]));
-      return elements;
-    }
-    if (typeof element == "string")
-      element = document.getElementById(element);
+    if (typeof document === "object") {
+        if (arguments.length > 1) {
+          for (var i = 0, elements = [], length = arguments.length; i < length; i++)
+            elements.push(this.$(arguments[i]));
+          return elements;
+        }
+        if (typeof element == "string")
+          element = document.getElementById(element);
+    } 
     return element;
   },
 
@@ -205,6 +207,8 @@ var JsUnitTest = {
   },
   
 	toQueryParams: function(query, separator) {
+        // Return an empty object if no window object is available
+        if (typeof window === "undefined") { return {}; }
     var query = query || window.location.search;
     var match = query.replace(/^\s+/, '').replace(/\s+$/, '').match(/([^?#]*)(#.*)?$/);
     if (!match) return { };

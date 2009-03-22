@@ -10,11 +10,14 @@ JsUnitTest.Unit.Runner = function(testcases) {
   this.logger = new JsUnitTest.Unit.Logger(options.testLog);
   
   var self = this;
-  JsUnitTest.Event.addEvent(window, "load", function() {
-    setTimeout(function() {
-      self.runTests();
-    }, 0.1);
-  });
+
+    if (typeof window === "object" && typeof window.setTimeout === "function") {
+      JsUnitTest.Event.addEvent(window, "load", function() {
+        setTimeout(function() {
+          self.runTests();
+        }, 0.1);
+      });
+    } else { self.runTests(); }
 };
 
 JsUnitTest.Unit.Runner.prototype.queryParams = JsUnitTest.toQueryParams();
