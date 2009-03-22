@@ -43,10 +43,10 @@
       JsUnitTest.Unit.Testcase.prototype.failures = 0;
       JsUnitTest.Unit.Testcase.prototype.errors = 0;
       JsUnitTest.Unit.Testcase.prototype.warnings = 0;
-      JsUnitTest.Unit.Logger = function() {};
-      JsUnitTest.Unit.Logger.prototype.start = function() {};
-      JsUnitTest.Unit.Logger.prototype.finish = function() {};
-      JsUnitTest.Unit.Logger.prototype.summary = function() {};
+      JsUnitTest.Unit.DOMLogger = function() {};
+      JsUnitTest.Unit.DOMLogger.prototype.start = function() {};
+      JsUnitTest.Unit.DOMLogger.prototype.finish = function() {};
+      JsUnitTest.Unit.DOMLogger.prototype.summary = function() {};
       this.runner = new JsUnitTest.Unit.Runner({
         testDoNothing : function() {},
         testDoNothing2 : function() {}

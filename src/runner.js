@@ -7,7 +7,7 @@ JsUnitTest.Unit.Runner = function(testcases) {
   
   this.tests = this.getTests(testcases);
   this.currentTest = 0;
-  this.logger = new JsUnitTest.Unit.Logger(options.testLog);
+  this.logger = new JsUnitTest.Unit.DOMLogger(options.testLog);
   
   var self = this;
 
