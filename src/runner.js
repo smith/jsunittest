@@ -4,10 +4,11 @@ JsUnitTest.Unit.Runner = function(testcases) {
   options.testLog = ('testLog' in argumentOptions) ? argumentOptions.testLog : 'testlog';
   options.resultsURL = this.queryParams.resultsURL;
   options.testLog = JsUnitTest.$(options.testLog);
+  options.Logger = ('logger' in argumentOptions) ? argumentOptions.logger : JsUnitTest.Unit.DOMLogger;
   
   this.tests = this.getTests(testcases);
   this.currentTest = 0;
-  this.logger = new JsUnitTest.Unit.DOMLogger(options.testLog);
+  this.logger = new options.Logger(options.testLog);
   
   var self = this;
 
