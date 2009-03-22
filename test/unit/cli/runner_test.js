@@ -2,7 +2,8 @@ load("../../../dist/jsunittest.js");
 load("../../../src/prototype/template.js");
 load("../../../src/prototype/event.js");
 load("../../../src/runner.js");
-print("This file tests runner.js.");
+print("");
+print("== This file tests runner.js ==");
 
   new Test.Unit.Runner({
     // replace this with your real tests
@@ -22,7 +23,7 @@ print("This file tests runner.js.");
       this.runner = new JsUnitTest.Unit.Runner({
         testDoNothing : function() {},
         testDoNothing2 : function() {}
-      });
+      }, { logger : Test.Unit.CLILogger });
     },
     // Initially
     testInitially: function() { with(this) {

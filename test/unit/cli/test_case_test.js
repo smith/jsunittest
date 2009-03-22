@@ -1,7 +1,8 @@
 load("../../../dist/jsunittest.js");
 load("../../../src/assertions.js");
 load("../../../src/test_case.js");
-print("This file tests test_case.js.");
+print("");
+print("== This file tests test_case.js ==");
 
   new Test.Unit.Runner({
     // replace this with your real tests
@@ -60,8 +61,8 @@ print("This file tests test_case.js.");
       assertEqual(1, testcase.errors, "Errors");
       assertEqual("name: An Error(Object: { name: name, message: An Error })", testcase.messages[0], 'Should be equal');
       assertEqual('error', testcase.status(), 'Should be equal');
-    }},
-    
+    }}//,
+/*    
     testErrorOnFirebug : function() { with(this) {
       var results = [];
       var orig_console = window.console;
@@ -82,6 +83,6 @@ print("This file tests test_case.js.");
       assertHashEqual({ message: 'An Error', name: 'name' }, results[1]);
       window.console = orig_console;
     }}
-
+*/
   }, { logger: Test.Unit.CLILogger }); 
 

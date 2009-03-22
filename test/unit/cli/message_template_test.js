@@ -1,6 +1,7 @@
 load("../../../dist/jsunittest.js");
 load("../../../src/message_template.js");
-print("This file tests message_template.js.");
+print("");
+print("== This file tests message_template.js ==");
 
   new Test.Unit.Runner({
     testBuildMessage:  function() {

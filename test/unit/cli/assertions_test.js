@@ -1,6 +1,7 @@
 load("../../../dist/jsunittest.js");
 load("../../../src/assertions.js");
-print("This file tests assertions.js");
+print("");
+print("== This file tests assertions.js ==");
 
   var testObj = {
     isNice: function() {
@@ -13,9 +14,9 @@ print("This file tests assertions.js");
 
   new Test.Unit.Runner({
     setup: function() {
-      this.testcss1      = document.getElementById('testcss1');
-      this.testcss1_span = document.getElementById('testcss1_span');
-      this.tlist         = document.getElementById('tlist');
+      //this.testcss1      = document.getElementById('testcss1');
+      //this.testcss1_span = document.getElementById('testcss1_span');
+      //this.tlist         = document.getElementById('tlist');
     },
     
     testMessage: function() { with(this) {
@@ -113,8 +114,8 @@ print("This file tests assertions.js");
       assertInstanceOf(String, new String);
       assertInstanceOf(RegExp, /foo/);
       assertNotInstanceOf(String, {});
-    }},
-    
+    }}//,
+/*    
     testHasClass: function() { with(this) {
       // <div id="test_1" class="a bbbbbbbbbbbb cccccccccc dddd"> </div>
       assertHasClass('test_1', 'a');
@@ -153,5 +154,6 @@ print("This file tests assertions.js");
       assertElementsMatch([tlist], '#tlist');   
       assertElementMatches(tlist,  '#tlist');   
     }}
+*/
   }, { logger: Test.Unit.CLILogger }); 
 

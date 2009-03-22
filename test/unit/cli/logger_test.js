@@ -1,6 +1,7 @@
 load("../../../dist/jsunittest.js");
 load("../../../src/logger/cli.js");
-print("This file tests logger/cli.js.");
+print("");
+print("== This file tests logger/cli.js ==");
 
   new Test.Unit.Runner({
     // replace this with your real tests

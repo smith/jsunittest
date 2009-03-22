@@ -1,5 +1,6 @@
 load("../../../dist/jsunittest.js");
-print("This file tests common.js.");
+print("");
+print("== This file tests common.js ==");
 
   new Test.Unit.Runner({
     testScan: function() {with(this) {

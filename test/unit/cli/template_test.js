@@ -1,6 +1,7 @@
 load("../../../dist/jsunittest.js");
 load("../../../src/prototype/template.js");
-print("This file tests template.js.");
+print("");
+print("== This file tests template.js ==");
 
   new Test.Unit.Runner({
     // Library
